@@ -8,7 +8,7 @@ import (
 )
 
 func init() {
-	_ = caddyconfig.RegisterAdapter("toml", Adapter{})
+	caddyconfig.RegisterAdapter("toml", Adapter{})
 }
 
 // Adapter converts a TOML Caddy configuration to JSON.
@@ -22,7 +22,7 @@ func (a Adapter) Adapt(body []byte, _ map[string]interface{}) (
 		return nil, nil, err
 	}
 
-	b, err := json.MarshalIndent(tree.ToMap(), "", "  ")
+	b, err := json.Marshal(tree.ToMap())
 
 	return b, nil, err
 }
