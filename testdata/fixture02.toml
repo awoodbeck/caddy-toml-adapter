@@ -1,0 +1,19 @@
+[apps.http.servers.hello]
+listen = [
+    ':2015',
+]
+
+[[apps.http.servers.hello.routes]]
+[[apps.http.servers.hello.routes.handle]]
+handler = 'static_response'
+body = 'Hello, world!'
+
+[apps.http.servers.bye]
+listen = [
+    ':2016',
+]
+
+[[apps.http.servers.bye.routes]]
+[[apps.http.servers.bye.routes.handle]]
+handler = 'static_response'
+body = 'Goodbye, world!'

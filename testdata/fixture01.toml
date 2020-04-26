@@ -1,0 +1,10 @@
+[apps.http.servers.hello]
+listen = [
+    'localhost:2020',
+]
+
+[[apps.http.servers.hello.routes]]
+[[apps.http.servers.hello.routes.handle]]
+body = 'Hello, world!'
+handler = 'static_response'
+
