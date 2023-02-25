@@ -2,7 +2,7 @@ package tomladapter
 
 import (
 	"bytes"
-	"io/ioutil"
+	"os"
 	"path/filepath"
 	"sort"
 	"testing"
@@ -25,12 +25,12 @@ func TestFixtures(t *testing.T) {
 	a := Adapter{}
 
 	for i := 0; i < l; i += 2 {
-		jn, err := ioutil.ReadFile(fixtures[i])
+		jn, err := os.ReadFile(fixtures[i])
 		if err != nil {
 			t.Error(err)
 			continue
 		}
-		tm, err := ioutil.ReadFile(fixtures[i+1])
+		tm, err := os.ReadFile(fixtures[i+1])
 		if err != nil {
 			t.Error(err)
 			continue
@@ -43,7 +43,7 @@ func TestFixtures(t *testing.T) {
 		}
 
 		if !bytes.Equal(bytes.TrimSpace(jn), b) {
-			t.Errorf("fixture %d failed", i+1)
+			t.Errorf("fixture %q failed", fixtures[i])
 			t.Logf("expected: %s\nactual: %s", jn, b)
 		}
 	}

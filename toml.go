@@ -16,7 +16,8 @@ type Adapter struct{}
 
 // Adapt the TOML body to JSON.
 func (a Adapter) Adapt(body []byte, _ map[string]interface{}) (
-	[]byte, []caddyconfig.Warning, error) {
+	[]byte, []caddyconfig.Warning, error,
+) {
 	tree, err := toml.LoadBytes(body)
 	if err != nil {
 		return nil, nil, err
