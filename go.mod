@@ -4,7 +4,7 @@ go 1.27.4
 
 require (
 	github.com/caddyserver/caddy/v2 v2.11.9
-	github.com/pelletier/go-toml v1.9.5
+	github.com/pelletier/go-toml/v2 v2.4.3
 	github.com/pelletier/go-toml/v2 v2.4.3
 )
 
